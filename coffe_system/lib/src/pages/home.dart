@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:coffe_system/src/widgets/base_scaffold.dart';
+import 'package:coffe_system/src/widgets/drinkedCup.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -42,9 +43,12 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Expanded(
-              child: Container(
-                width: screenWidth * 0.94,
-                child: Text(drinkedCups.toString()),
+              child: GridView.count(
+                crossAxisCount: 3,
+                children: List.generate(
+                  drinkedCups,
+                  CupWidget(cupImage: 'assets/images/coffe_cup.PNG'),
+                ),
               ),
             ),
           ],
