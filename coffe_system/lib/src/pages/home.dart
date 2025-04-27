@@ -1,6 +1,5 @@
-import 'dart:math';
-
 import 'package:coffe_system/src/model/cup.dart';
+import 'package:coffe_system/src/widgets/CupCarousel.dart';
 import 'package:coffe_system/src/widgets/base_scaffold.dart';
 import 'package:coffe_system/src/widgets/drinkedCup.dart';
 import 'package:flutter/material.dart';
@@ -16,12 +15,11 @@ class _HomePageState extends State<HomePage> {
   int drinkedCups = 0;
 
   final List<CupModel> cupList = [];
-  final Random random = Random();
+  final List<CupModel> cupSelection = [];
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-
+    cupSelection.add(CupModel(iD: 1, imageUrl: 'assets/images/coffe_cup.PNG'));
     return BaseScaffold(
       body: Container(
         width: double.infinity,
@@ -29,7 +27,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             Padding(padding: const EdgeInsets.only(top: 20)),
-            Image.asset('assets/images/coffe_cup.PNG', width: 380, height: 380),
+            CupCarousel(cupTypes: cupSelection),
             OutlinedButton(
               onPressed: _addCoffe,
               child: Text(
@@ -58,7 +56,7 @@ class _HomePageState extends State<HomePage> {
 
   void _addCoffe() {
     setState(() {
-      cupList.add(CupModel(imageUrl: 'assets/images/coffe_cup.PNG'));
+      cupList.add(CupModel(iD: 1, imageUrl: 'assets/images/coffe_cup.PNG'));
     });
   }
 }
