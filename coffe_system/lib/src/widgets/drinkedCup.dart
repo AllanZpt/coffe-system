@@ -4,7 +4,7 @@ class CupWidget extends StatelessWidget {
   final String cupImage;
   final EdgeInsets? whiteSpace;
 
-  const CupWidget({required this.cupImage, this.whiteSpace, super.key});
+  const CupWidget({required this.cupImage, this.whiteSpace});
 
   @override
   Widget build(BuildContext context) {
