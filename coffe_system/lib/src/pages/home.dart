@@ -19,7 +19,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    cupSelection.add(CupModel(iD: 1, imageUrl: 'assets/images/coffe_cup.PNG'));
+    cupSelection.addAll([
+      CupModel(iD: 1, imageUrl: 'assets/images/coffe_cup.PNG'),
+      CupModel(iD: 2, imageUrl: 'assets/images/small_cup.png'),
+    ]);
+
     return BaseScaffold(
       body: Container(
         width: double.infinity,

@@ -20,3 +20,4 @@ flutter:
   uses-material-design: true
   assets:
     - ./assets/images/coffe_cup.PNG
+    - ./assets/images/small_cup.png
