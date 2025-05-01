@@ -13,6 +13,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int drinkedCups = 0;
+  int currentCup = 0;
 
   final List<CupModel> cupList = [];
   final List<CupModel> cupSelection = [];
@@ -23,7 +24,6 @@ class _HomePageState extends State<HomePage> {
       CupModel(iD: 1, imageUrl: 'assets/images/coffe_cup.PNG'),
       CupModel(iD: 2, imageUrl: 'assets/images/small_cup.png'),
     ]);
-
     return BaseScaffold(
       body: Container(
         width: double.infinity,
@@ -31,7 +31,14 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             Padding(padding: const EdgeInsets.only(top: 20)),
-            CupCarousel(cupTypes: cupSelection),
+            CupCarousel(
+              cupTypes: cupSelection,
+              onPageChanged: (index) {
+                setState(() {
+                  currentCup = index;
+                });
+              },
+            ),
             OutlinedButton(
               onPressed: _addCoffe,
               child: Text(
@@ -60,7 +67,13 @@ class _HomePageState extends State<HomePage> {
 
   void _addCoffe() {
     setState(() {
-      cupList.add(CupModel(iD: 1, imageUrl: 'assets/images/coffe_cup.PNG'));
+      cupList.add(
+        CupModel(
+          iD: cupSelection[currentCup].iD,
+          imageUrl: cupSelection[currentCup].imageUrl,
+        ),
+      );
+      //cupList.add(CupModel(iD: 1, imageUrl: 'assets/images/coffe_cup.PNG'));
     });
   }
 }
