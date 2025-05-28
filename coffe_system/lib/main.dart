@@ -1,4 +1,5 @@
 import 'package:coffe_system/src/pages/home.dart';
+import 'package:coffe_system/src/pages/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,8 +14,11 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: 'Coffe System',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/home',
-      routes: {'/home': (context) => const HomePage()},
+      initialRoute: '/login',
+      routes: {
+        '/home': (context) => const HomePage(),
+        '/login': (context) => LoginScreen(),
+      },
     );
   }
 }
